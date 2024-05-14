@@ -1,0 +1,13 @@
+.head{
+    border: 5px solid red;
+    height: 100px;
+    text-align: center;
+    background-color: aqua;
+
+    border-radius: 12px;
+    
+}
+
+.para2{
+    background-image: url('https://images.unsplash.com/photo-1512482623839-44d67e102589');
+}

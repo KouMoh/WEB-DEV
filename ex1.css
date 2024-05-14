@@ -1,0 +1,39 @@
+*{
+    animation: fadeIn 2s ease;
+}
+
+
+
+
+.head{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    color: blue;
+    text-align: center;
+    padding: 8px;
+    background-color: brown;
+    border-radius: 12px;
+    border-color: brown;
+
+}
+
+#p1{
+    background-color: yellow;
+    color: red;  
+    border: 4px solid black;
+    background-image: url("https://unsplash.com/photos/a-woman-in-a-blue-dress-is-walking-past-a-wall-of-colorful-houses--l0B2Hti3oI");
+}
+
+#p2{
+    background-color: blue;
+    color: white;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

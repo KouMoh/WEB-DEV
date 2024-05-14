@@ -1,0 +1,34 @@
+body{
+    background-color: #f0f0f0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+.table{
+    border-collapse: collapse;
+    width: 100%;
+    animation: fadeIn 1s ease;
+}
+
+.table th{
+    background-color: aqua;
+    color: crimson;
+    padding: 12px;
+    text-align: center;
+}
+table td{
+    background-color: blue;
+    color: yellow;
+    padding: 8px;
+    text-align: center;
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
