@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        .container{
+            border:22px solid black ;
+            border-radius: 20px;
+            background-color: khaki;
+            padding: 10px;
+
+            height: 1222px;
+
+        }
+        .box {
+            border: 2px solid rgb(10, 199, 6);
+            display: inline-block;
+            padding: 5px;
+            margin: 10px;
+            width: 135px;
+            height: 135px;
+        }
+
+        #box3 {
+            /* relative means relating to the parent position*/
+            /* position: absolute; */
+            /* position: fixed; */
+            /* top: 33px;
+            left: 34px; */
+            /* right: 12px; */
+
+            position: sticky;
+
+            top: 3px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="box" id="box1">1</div>
+        <div class="box" id="box2">2</div>
+        <div class="box" id="box3">3</div>
+        <div class="box" id="box4">4</div>
+    </div>
+</body>
+
+</html>
