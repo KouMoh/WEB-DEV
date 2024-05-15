@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexin'</title>
+    
+    <style>
+
+        .heading{
+            text-align: center;
+        }
+
+        .container{
+            border: 12px solid crimson;
+            background-color: violet;
+            padding: 50px;
+            height: 500px;
+            margin: auto;
+            display:block;
+            border-radius: 12px;
+            display: flex;
+            /* flex-direction: column;
+            flex-direction: row-reverse; */
+            flex-wrap: wrap;
+            justify-content: center;
+            justify-content: space-between;
+            justify-content: space-evenly;
+            justify-content: space-around;
+            align-items: center;
+            align-items: stretch;
+            align-content: center;
+        }
+
+        .item{
+            border: 5px solid rgb(255, 0, 0);
+            background-color:blue;
+            padding:3px;
+            margin: 12px;
+            width: 120px;
+            height: 150px;
+            text-align: center;
+            align-content: center;
+        }
+/* 
+        #box-1{
+            flex-grow: 3;
+            flex-shrink: 2;
+        }
+
+        #box-2{
+            flex-shrink: 4;
+        }
+
+        #box-3{
+            flex-grow: 1;
+            flex-basis: 160px;
+            align-self: flex-start;
+            flex: 2 3 99px;
+            align-self: flex-end;
+            align-self: start;
+            align-self: center;
+        } */
+    </style>
+    
+</head>
+<body>
+    <div class="heading"><h1>This is a FlexBox</h1></div>
+    <div class="container">
+        <div class="item" id="box-1">First Box</div>
+        <div class="item" id="box-2">Second Box</div>
+        <div class="item" id="box-3">Third Box</div>
+        <div class="item" id="box-4">Fourth Box</div>
+    </div>
+</body>
+</html>
