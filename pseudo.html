@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-selectors</title>
+    <style>
+
+        .container{
+            padding: 12px;
+            width: 233px;
+            margin: auto;
+        }
+        input{
+            display: flex;
+        }
+
+        input[type='text']{
+            border: 2px solid rgb(247, 222, 1);
+            margin: 12px;
+            width: 123px;
+            height: 122px;
+            text-align: center;
+        }
+        input[type = 'password']{
+            background-color: azure;
+            border: 2px solid green;
+            margin-top: 23px;
+            margin-bottom: 22px;
+        }
+
+        a{
+            display: block;
+        }
+
+        a[target = '_blank']{
+            color: rgb(255, 0, 93);
+        }
+
+        li:nth-child(3){
+            color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <a href="http://google.com" target="_blank"> Go to Google</a>
+        <a href="http://facebook.com" target="_self"> Go to facebook</a>
+
+        <form action="" class="form-control">
+            <input type="text" placeholder="Enter your name">
+            <input type="password" placeholder="Enter your password">
+            <input type="submit" placeholder="Submit">
+        </form>
+
+        <ul>
+            <li class="item">Item-1</li>
+            <li class="item">Item-2</li>
+            <li class="item">Item-3</li>
+            <li class="item">Item-4</li>
+        </ul>
+
+    </div>
+</body>
+</html>
