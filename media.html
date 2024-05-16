@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries</title>
+
+    <style>
+
+        .container{
+            background-color: powderblue;
+            border: 3px solid violet;
+            padding: 23px;
+           
+            /* border: 5px solid;
+           
+            
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            justify-content: space-evenly; */
+            align-self: center;
+        }
+
+        .box{
+            border: 2px solid brown;
+            padding: 23px;
+            width: 235px;
+            justify-self: center;
+            margin: auto;
+            display: none;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width:500px) {
+            #box1{
+                display: block;
+                background-color: red;
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width:800px) {
+            #box3{
+                display: block;
+                background-color: royalblue;
+                flex-wrap: wrap;
+            }
+        }
+        @media (min-width:900px) {
+            #box2{
+                display: block;
+                background-color: yellow;
+                flex-wrap: wrap;
+            }
+        }
+        @media (max-width:900px) {
+            #box4{
+                display: block;
+                background-color: greenyellow;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae a quos asperiores porro in voluptates dolor mollitia, consequuntur dicta deleniti est sunt?</div>
+        
+        <div class="box" id="box2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, doloribus similique voluptas, voluptatum modi odio alias at pariatur, praesentium quaerat unde magni porro.</div>
+        
+        <div class="box" id="box3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cumque voluptatum consectetur ex fugit hic, quo maxime, sit natus inventore eaque est vel magnam deleniti voluptate ullam velit, amet aspernatur!</div>
+        
+        <div class="box" id="box4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque natus inventore molestias adipisci iste, iure exercitationem blanditiis aperiam rerum delectus quo consequuntur, fugit incidunt facilis assumenda, dolorem quod sed eos!</div>
+    </div>
+</body>
+</html>
