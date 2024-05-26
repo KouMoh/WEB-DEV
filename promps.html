@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts!</title>
+</head>
+<body>
+    <div class="container" id="c">
+        This is a page
+    </div>
+</body>
+<script>
+//    let a = alert("this is a message!")
+//    console.log(a)
+
+// let name  = prompt("What is your name?", "Guest?")
+// console.log(name)
+
+let deletePost = confirm("Do u wanna delete this post?")
+
+if(deletePost){
+    document.getElementById('c').innerHTML = "<h3> Your post has been deleted! </h3>";
+}
+else{
+    document.getElementById('c').innerHTML = "<h3> Your post has not been deleted!</h3>";
+}
+
+</script>
+</html>

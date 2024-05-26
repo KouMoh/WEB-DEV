@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <div class="container" id="main">
+        <ul id="nav">
+            <li>Home</li>
+            <li>About</li>
+            <li>Services</li>
+            <li>More About us</li>
+            <li>COntact Us</li>
+        </ul>
+    </div>
+    <div class="container">
+        Another container
+    </div>
+</body>
+<script>
+    let main = document.getElementById('main');
+    console.log(main);
+    let nav = document.getElementById('nav');
+    // nav.innerHTML = "<li> Inner HTML </li>";
+    let containers = document.getElementsByClassName('container');
+    console.log(containers)
+
+    let sel = document.querySelectorAll('#nav>li')
+    console.log(sel);
+    sel[0].innerHTML = "Inserted"
+    sel[1].innerHTML = "Inserted2"
+
+</script>
+</html>
