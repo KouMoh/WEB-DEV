@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        #btn{
+            padding: 10px;
+            background-color: brown;
+            display: flex;
+            margin: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            This is a heading
+        </h1>
+        <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque temporibus rerum consectetur aut fugiat nisi laudantium nesciunt dolor, vel odit! Illum asperiores, rerum labore harum, magni similique reiciendis dolorem debitis architecto provident eos.</p>
+
+        <button id="btn" onclick="toggleHide()">Show/Hide</button>
+
+    </div>
+</body>
+<script>
+    let btn = document.getElementById('btn');
+    let para = document.getElementById('para');
+
+    function toggleHide(){
+        if(para.style.visibility == 'hidden'){
+            para.style.visibility= 'visible';
+        }
+        else{
+            para.style.visibility ='hidden';
+        }
+    }
+
+    para.addEventListener('mouseover', function run() {
+
+        console.log("Mouse Inside!")
+
+    })
+
+    para.addEventListener('mouseout', function run() {
+
+console.log("Mouse Outside!")
+
+})
+
+
+</script>
+</html>

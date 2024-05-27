@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times</title>
+</head>
+<body>
+    <div class="container">
+        This is a container
+
+        The time now is <span id="time"></span>
+    </div>
+</body>
+
+<script>
+    function greet(name){
+        console.log("Hello! "+ name)
+    }
+
+  timeOut =  setTimeout(greet, 500, 'Amul')
+  console.log(timeOut)
+  clearTimeout(timeOut)
+  setInterval(greet,500, 'Amul')
+
+  function displayTime(){
+    time = new Date();
+    console.log(time);
+    document.getElementById('time').innerHTML = time;
+
+  }
+
+  setInterval(displayTime, 1000)
+
+</script>
+
+</html>
