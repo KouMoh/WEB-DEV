@@ -1,11 +1,27 @@
 const express = require('express');
 const fs = require('fs');
 const users = require("./MOCK_DATA.json");
+const { log } = require('console');
 const app = express();
 
 const port = 8000;
 
 app.use(express.urlencoded({extended: false }));
+
+app.use((req,res,next) =>{
+    console.log("Hello from middleware 1");
+    fs.appendFile('log.txt', `${Date.now()} : ${req.method}: ${req.path}`, (err,data) =>{
+        next();
+    })
+    // req.myUserName = "Amul"
+    
+})
+
+app.use((req,res,next) =>{
+    console.log("Hello from middleware 2", req.myUserName );
+    next();
+    
+});
 
 app.get("/api/users", (req, res) =>{
     return res.json(users);
