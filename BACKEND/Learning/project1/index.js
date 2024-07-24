@@ -3,10 +3,13 @@ const fs = require('fs');
 const users = require("./MOCK_DATA.json");
 
 const mongoose = require("mongoose");
-const User = mongoose.model('user')
 const { log } = require('console');
 const app = express();
 
+mongoose
+  .connect('mongodb://127.0.0.1:27017/ek-mai-aur-ek-tu-hai')
+  .then(() => console.log('MongoDB connected!'))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -32,7 +35,9 @@ const userSchema = new mongoose.Schema({
     gender:{
         type: String
     }
-})
+});
+
+const User = mongoose.model("user", userSchema);
 
 const port = 8000;
 
