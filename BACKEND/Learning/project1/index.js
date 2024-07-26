@@ -1,9 +1,9 @@
 const express = require('express');
 const fs = require('fs');
-const users = require("./MOCK_DATA.json");
+
 
 const mongoose = require("mongoose");
-const { log } = require('console');
+const { log, timeStamp } = require('console');
 const app = express();
 
 mongoose
@@ -34,8 +34,8 @@ const userSchema = new mongoose.Schema({
 
     gender:{
         type: String
-    }
-});
+    },
+},{timestamps: true});
 
 const User = mongoose.model("user", userSchema);
 
@@ -58,39 +58,56 @@ app.use((req,res,next) =>{
     
 });
 
-app.get("/api/users", (req, res) =>{
+app.get("/api/users", async (req, res) =>{
+    allDbUsers = await User.find({});
     // res.setHeader("myName", "Amul");
     console.log(req.headers);
-    return res.json(users);
+    return res.json(allDbUsers);
 });
 
-app.get("/users", (req, res) =>{
+app.get("/users", async (req, res) =>{
+    const allDbUsers = await User.find({});
     const html = `
     <ul>
-        ${users.map((user) => `<li>${user.first_name}</li>`).join('')}
+        ${allDbUsers.map((user) => `<li>${user.firstName} - ${user.email}</li>`).join('')}
     </ul>
     `;
 
     res.send(html);
 });
 
-app.post("/api/users", (req,res)=>{
+app.post("/api/users", async (req,res)=>{
 
     const body = req.body;
-    console.log("Body: ",body);
-    users.push({...body, id: users.length+1});
-    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err,data) =>{
-        return res.json({status: "success", id: users.length});
+    if(
+        !body ||
+        !body.first_name ||
+        !body.last_name ||
+        !body.email ||
+        !body.gender||
+        !body.job_title
+    ) {
+        return res.status(400).json({msg : "All fields are req..."});
+    }
+
+    const result = await User.create({
+        firstName: body.first_name,
+        lastName: body.last_name,
+        email: body.email,
+        gender: body.gender,
+        jobTitle: body.job_title
     });
+    console.log(result);
+    return res.status(201).json({ msg: ' success'});
 });
 
 
 
 app
 .route("/api/users/:id")
-.get((req,res) => {
-    const id = Number(req.params.id);
-    const user = users.find((user) => user.id === id);
+.get( async (req,res) => {
+    const user = await User.findById(req.params.id);
+    if(!user) return res.status(404).json({error: "user not found"});
     return res.json(user);
 })
 .post((req,res)=>{
@@ -109,20 +126,9 @@ app
         return res.status(404).json({ status: "error", message: "User not found" });
     }
 }) 
-.delete((req,res)=>{
-    const id = Number(req.params.id);
-    const index = users.findIndex((user) => user.id === id);
-    if (index !== -1) {
-        const deletedUser = users.splice(index, 1);
-        fs.writeFile("./MOCK_DATA.json", JSON.stringify(users, null, 2), (err) => {
-            if (err) {
-                return res.json({ status: "error", message: "Failed to write to file" });
-            }
-            return res.json({ status: "success", user: deletedUser[0] });
-        });
-    } else {
-        return res.status(404).json({ status: "error", message: "User not found" });
-    }
+.delete( async(req,res)=>{
+    await User.findByIdAndDelete(req.params.id)
+    return res.json({status: "Success"})
 
 });
 
