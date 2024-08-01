@@ -1,12 +1,11 @@
 const express = require('express');
 const fs = require('fs');
-
 const userRouter = require('./routes/user')
-
 const{conectMongoDb, connectMongoDb} = require('./connection')
 
-const mongoose = require("mongoose");
-const { log, timeStamp } = require('console');
+const {longReqRes} = require("./middlewares")
+// const mongoose = require("mongoose");
+// const { log, timeStamp } = require('console');
 const app = express();
 
 // mongoose
@@ -21,20 +20,13 @@ const port = 8000;
 
 app.use(express.urlencoded({extended: false }));
 
-app.use((req,res,next) =>{
-    console.log("Hello from middleware 1");
-    fs.appendFile('log.txt', `${Date.now()} : ${req.method}: ${req.path}`, (err,data) =>{
-        next();
-    })
-    // req.myUserName = "Amul"
-    
-})
+app.use(longReqRes("log.txt"));
 
-app.use((req,res,next) =>{
-    console.log("Hello from middleware 2", req.myUserName );
-    next();
+// app.use((req,res,next) =>{
+//     console.log("Hello from middleware 2", req.myUserName );
+//     next();
     
-});
+// });
 
 
 app.use("/user", userRouter)
